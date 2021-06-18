@@ -1,0 +1,106 @@
+<div class="page-layout blank" fusePerfectScrollbar>
+    <div style="background: gray;">
+      <div class="header">
+          Admin Dashboard
+      </div>
+    </div>
+    <div style="padding-right: 5%;" fxLayout="row" fxLayoutAlign="space-between center">
+      <mat-form-field appearance="outline" style="width: 30%; margin-left: 13px;">
+        <mat-label>TDSP-ZONE</mat-label>
+        <mat-select [value]="tdsp" (selectionChange)="tdspChange($event)">
+          <mat-option value="0">AEP-North</mat-option>
+          <mat-option value="1">AEP Central</mat-option>
+          <mat-option value="2">ONCOR</mat-option>
+          <mat-option value="3">TNP</mat-option>
+          <mat-option value="4">Centerpont</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-stroked-button color="accent" routerLink="/admin/generate" style="font-size: 18px; font-weight: 700; color: #782d54;">Generate Price Line</button>
+    </div>
+    <div fxLayout="row">
+        <div fxFlex="30" style="padding: 50px 0px 50px 10px;">
+            <mat-accordion>
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      <span style="font-size: 22px;
+                      font-weight: 600;color: #782d54;">
+                        <b>Menu</b>
+                      </span>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+                  <div fxLayout="column" class="button-section">
+                      <button mat-stroked-button color="accent" [routerLink]="'/admin/approved'" style="color: #782d54;">Contracts Approved</button>
+                      <button mat-stroked-button color="accent" style="margin-top: 10px; color: #782d54;" [routerLink]="'/admin/declined'">Contracts Declined</button>
+                      <button mat-stroked-button color="accent" style="margin-top: 10px; color: #782d54;" [routerLink]="'/admin/pending'">Contracts Pending</button>
+                  </div>
+                </mat-expansion-panel>
+            </mat-accordion>
+            <div fxLayout="row" style="padding: 10px 0px;">
+              <div fxFlex="48" fxLayout="column" class="show-section">
+                <span style="font-size: 22px;
+                font-weight: 600;
+                padding-bottom: 15px;color: #782d54;"><b>Total Contracts</b></span>
+                <span style="font-size: 25px;">{{total_contract}}</span>
+              </div>
+              <div fxFlex="4"></div>
+              <div fxFlex="48" fxLayout="column" class="show-section">
+                <span style="font-size: 22px;
+                font-weight: 600;
+                padding-bottom: 15px;color: #782d54;"><b>Total kWh</b></span>
+                <span style="font-size: 25px;">{{total_kwh}}</span>
+              </div>
+            </div>
+            <app-upload-file ></app-upload-file>
+        </div>
+        <div fxFlex="70">
+            <div class="table-container" id="content">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 price-table" cdk-scrollable>
+                  <ng-container matColumnDef="header-row-first-group" >
+                    <th mat-header-cell *matHeaderCellDef 
+                      [style.text-align]="'center'"
+                      [attr.colspan]="1"> 
+                      Providers
+                    </th>
+                  </ng-container>
+                
+                  <ng-container matColumnDef="header-row-second-group" >
+                    <th mat-header-cell *matHeaderCellDef 
+                      [attr.colspan]="6"> 
+                      Terms 
+                    </th>
+                  </ng-container>
+              
+                  <ng-container *ngFor="let i of this.displayedColumns; index as j" matColumnDef="{{ i }}">
+                    <th mat-header-cell *matHeaderCellDef>
+                        <div *ngIf="i=='supplier_logo'" class="mat-typography">Provider</div>
+                        <div *ngIf="i.includes('Month')" class="mat-typography">
+                            {{i}}
+                        </div>
+                        <div *ngIf="i=='action'" class="mat-typography">Remove</div>
+                    </th>
+                    <td mat-cell *matCellDef="let row; index as index"> 
+                        <div *ngIf="i === 'supplier_logo'" style="padding-left:-12px !important;">
+                            <img *ngIf="row['supplier_logo']" [src]="row['supplier_logo']" [alt]="row['supplier']" style="width: 190px !important;">
+                        </div> 
+                        <div *ngIf="i.includes('Month')">
+                          <mat-card class="term-card" *ngIf="row[i]>0">
+                              <div class="mat-typography" (click)="editModal(row['userid'], row[i], row['_id'], i)">
+                                {{ row[i] | number:'1.2-4' }}&cent; <br> /kWh 
+                              </div>
+                          </mat-card>
+                        </div>
+                        <mat-icon *ngIf="i=='action' && row['userid']==userinfo._id" style="cursor: pointer; color: red;" (click)="deleteCompany(row['_id'])">delete</mat-icon>
+                    </td>
+                  </ng-container>
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row  *matRowDef="let row; columns: displayedColumns"></tr>
+                
+                </table>
+            </div>
+            <!-- <div style="text-align: center; padding: 10px">
+              <button mat-stroked-button color="accent" (click)="edit()" style="width: 100px;">Edit</button>
+            </div> -->
+        </div>
+    </div>
+</div>

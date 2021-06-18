@@ -1,0 +1,31 @@
+<div class="page-layout blank" fusePerfectScrollbar>
+    <div style="background: gray;">
+        <div class="header">
+            Dashboard
+        </div>
+    </div>
+    <div class="share">
+        http://54.151.113.189/auth/signup?userid={{userinfo._id}}
+        <button mat-stroked-button color="accent" (click)="invite()">+Invite member</button>
+    </div>
+    <div fxLayout="row">
+        <div fxLayout="column" fxFlex="33" class="show-section">
+            <span>Total Contracts</span>
+            <div>
+                {{count}}
+            </div>
+        </div>
+        <div fxLayout="column" fxFlex="33" class="show-section">
+            <span>Total Monthly</span>
+            <div>
+                {{count * 10 + t_count * 3}}
+            </div>
+        </div>
+        <div fxLayout="column" fxFlex="33" class="show-section">
+            <span>Total Amount</span>
+            <div>
+                {{amount}}
+            </div>
+        </div>
+    </div> 
+</div>

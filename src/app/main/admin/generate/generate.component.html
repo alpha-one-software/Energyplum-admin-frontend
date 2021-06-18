@@ -1,0 +1,47 @@
+<div class="page-layout blank" fusePerfectScrollbar>
+    <div style="text-align: center; padding-top:20px;">
+        <button mat-stroked-button color="accent" (click)="generate()" style="font-size: 18px; font-weight: 700; color: #782d54;">Generate Stage Pricing Link</button>
+    </div>
+    <div class="table-container" id="content">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 price-table" cdk-scrollable>
+          <ng-container matColumnDef="header-row-first-group" >
+            <th mat-header-cell *matHeaderCellDef 
+              [style.text-align]="'center'"
+              [attr.colspan]="1"> 
+              Providers
+            </th>
+          </ng-container>
+        
+          <ng-container matColumnDef="header-row-second-group" >
+            <th mat-header-cell *matHeaderCellDef 
+              [attr.colspan]="6"> 
+              Terms 
+            </th>
+          </ng-container>
+      
+          <ng-container *ngFor="let i of this.displayedColumns; index as j" matColumnDef="{{ i }}">
+            <th mat-header-cell *matHeaderCellDef>
+                <div *ngIf="i=='supplier_logo'" class="mat-typography">Provider</div>
+                <div *ngIf="i.includes('Month')" class="mat-typography">
+                    {{i}}
+                </div>
+            </th>
+            <td mat-cell *matCellDef="let row; index as index"> 
+                <div *ngIf="i === 'supplier_logo'" style="padding-left:-12px !important;">
+                    <img *ngIf="row['supplier_logo']" [src]="row['supplier_logo']" [alt]="row['supplier']" style="width: 190px !important;">
+                </div> 
+                <div *ngIf="i.includes('Month')">
+                  <mat-card class="term-card" *ngIf="row[i]>0">
+                      <div class="mat-typography">
+                        {{ row[i]*100 | number:'1.2-4' }}&cent; <br> /kWh 
+                      </div>
+                  </mat-card>
+                </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row  *matRowDef="let row; columns: displayedColumns"></tr>
+        
+        </table>
+    </div>
+</div>

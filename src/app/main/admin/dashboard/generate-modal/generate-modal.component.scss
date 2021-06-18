@@ -1,0 +1,33 @@
+.header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 12px 0px;
+    color: white;
+    background: #782d54;
+    mat-icon {
+        margin-right: 12px;
+        font-size: 30px;
+        float: right; 
+        cursor: pointer;
+    }
+}
+.content {
+    text-align: center;
+    font-size: 16px;
+    padding: 24px 24px 0px;
+    mat-form-field {
+        width: 100%;
+    }
+}
+.footer {
+    text-align: center;
+    padding: 12px 24px 24px;
+    button {
+        width: 20%;
+    }
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0px !important;
+}

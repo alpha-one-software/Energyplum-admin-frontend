@@ -1,0 +1,72 @@
+<div class="page-layout blank" fusePerfectScrollbar style="padding: 30px">
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+      
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element; index as i"> {{i+1}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="islogo">
+            <th mat-header-cell *matHeaderCellDef> Logo Exist </th>
+            <td mat-cell *matCellDef="let element">
+              <input style="display: none" type="file" (change)="uploadLogo($event, element._id, element.islogo)" #logo>
+              <button mat-stroked-button (click)="logo.click()" style="margin-right: 5px; width: 100px;">
+                {{
+                  element.islogo ? 'Change':'Upload'
+                }}
+              </button>
+              <button *ngIf="element.islogo" mat-stroked-button (click)="removeLogo(element._id)" color="warn" style="margin-right: 5px; width: 100px;">Remove</button>
+                <!-- <span *ngIf="element.islogo">Yes</span>
+                <span *ngIf="!element.islogo">No</span> -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="isbg">
+            <th mat-header-cell *matHeaderCellDef> Background Exist </th>
+            <td mat-cell *matCellDef="let element">
+              <input style="display: none" type="file" (change)="uploadBackground($event, element._id, element.isbg)" #bg>
+              <button mat-stroked-button (click)="bg.click()" style="margin-right: 5px; width: 100px;">
+                {{
+                  element.isbg ? 'Change':'Upload'
+                }}
+              </button>
+              <button *ngIf="element.isbg" mat-stroked-button (click)="removeBackground(element._id)" color="warn" style="margin-right: 5px; width: 100px;">Remove</button>
+                <!-- <span *ngIf="element.isbg">Yes</span>
+                <span *ngIf="!element.isbg">No</span> -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef> Share Url </th>
+            <td mat-cell *matCellDef="let element"> http://54.151.113.189/auth/signup?clientid={{element._id}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="upload">
+            <th mat-header-cell *matHeaderCellDef> Account </th>
+            <td mat-cell *matCellDef="let element">
+                <!-- <input style="display: none" type="file" (change)="uploadLogo($event, element._id, element.islogo)" #logo>
+                <button mat-stroked-button (click)="logo.click()" style="margin-right: 5px;">Logo</button>
+                <input style="display: none" type="file" (change)="uploadBackground($event, element._id, element.isbg)" #bg>
+                <button mat-stroked-button (click)="bg.click()" style="margin-right: 5px;">Background</button> -->
+                <button mat-stroked-button (click)="removeAccount(element._id)" color="warn">Remove</button>
+            </td>
+          </ng-container>
+      
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</div>

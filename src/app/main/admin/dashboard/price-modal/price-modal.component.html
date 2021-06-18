@@ -1,0 +1,13 @@
+<div class="header">
+    <span>Price Edit</span>
+    <mat-icon (click)="closeBtn()">cancel</mat-icon>
+</div>
+<div class="content">
+    <mat-form-field>
+        <mat-label>Price</mat-label>
+        <input type="number" matInput [(ngModel)]="value">
+    </mat-form-field>
+</div>
+<div class="footer">
+    <button mat-stroked-button color="accent" (click)="submitBtn()" style="color: #782d54;">Submit</button>
+</div>

@@ -1,0 +1,27 @@
+.header {
+    font-size: 30px;
+    margin: 3% 5%;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+.share {
+    margin: 1% 5%;
+    text-align: right;
+    padding: 15px;
+}
+.show-section {
+    align-items: center;
+    span {
+        padding-bottom: 10px;
+    }
+    div {
+        width: 70%;
+        text-align: center;
+        padding: 20px 0px;
+        background: green;
+        border-radius: 10px;
+        font-size: 20px;
+        color: white;
+    }
+}

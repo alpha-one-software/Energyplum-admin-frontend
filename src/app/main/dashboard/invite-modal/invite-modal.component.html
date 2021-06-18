@@ -1,0 +1,31 @@
+<div class="header">
+    <span>Invite Teammates</span>
+    <mat-icon (click)="closeBtn()">cancel</mat-icon>
+</div>
+<div class="content">
+    <div fxLayout="column" [formGroup]="inviteForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Email1</mat-label>
+            <input type="text" matInput formControlName="email1">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email2</mat-label>
+            <input type="text" matInput formControlName="email2">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email3</mat-label>
+            <input type="text" matInput formControlName="email3">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email4</mat-label>
+            <input type="text" matInput formControlName="email4">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email5</mat-label>
+            <input type="text" matInput formControlName="email5">
+        </mat-form-field>
+    </div>
+</div>
+<div class="footer">
+    <button mat-stroked-button color="accent" (click)="submitBtn()" [disabled]="inviteForm.invalid">Invite</button>
+</div>

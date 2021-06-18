@@ -1,0 +1,25 @@
+<div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop (onFileDropped)="uploadFile($event)">
+  <input hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+</div>
+<div  class="files-list" *ngIf="file">
+  <p>{{ file.name }}</p>
+  <button class="delete-file" (click)="deleteAttachment()">
+    <img src="../../../../../assets/Recycle_Bin_Full.png">
+  </button>
+</div>
+<input style="display: none" type="file" (change)="uploadLogo($event)"
+            #logo>
+<div *ngIf="jsonData" (click)="logo.click()" class="add-btn" style="text-align: center; padding-bottom: 10px;">
+    <img *ngIf="logoSrc" [src]="logoSrc" alt="">
+    <button mat-stroked-button color="accent" style="width: 80%; color: #782d54;">Upload Logo</button>
+</div>
+
+<input style="display: none" type="file" (change)="uploadPdf($event)"
+            #pdf>
+<div *ngIf="jsonData && logoSrc" (click)="pdf.click()" class="add-btn" style="text-align: center; padding-bottom: 10px;">
+  <button mat-stroked-button color="accent" style="width: 80%; color: #782d54;">Upload PDF</button>
+</div>
+
+<div style="text-align: center;">
+  <button mat-stroked-button (click)="upload()" color="accent" style="width: 80%; color: #782d54;" [disabled]="!file || !logoData || !pdfData">Submit</button>
+</div>

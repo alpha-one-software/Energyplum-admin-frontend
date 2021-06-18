@@ -1,0 +1,24 @@
+<div class="header">
+    <span>Customer</span>
+    <mat-icon (click)="closeBtn()">cancel</mat-icon>
+</div>
+<div class="content" style="padding-bottom: 20px;">
+    <!-- <div fxLayout="column" [formGroup]="customerForm">
+        <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="first_name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="last_name">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput formControlName="email">
+        </mat-form-field>
+    </div> -->
+    http://54.151.113.189/auth/signup?clientid={{data._id}}
+</div>
+<div class="footer">
+    <button mat-stroked-button color="accent" ngxClipboard [cbContent]="'http://54.151.113.189/auth/signup?clientid='+data._id" style="color: #782d54;">Copy</button>
+</div>

@@ -1,0 +1,204 @@
+.header {
+    font-size: 30px;
+    margin: 3% 5%;
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+}
+.share {
+    margin: 1% 5%;
+    text-align: right;
+    padding: 15px;
+}
+.show-section {
+    align-items: center;
+    span {
+        padding-bottom: 10px;
+    }
+    div {
+        width: 70%;
+        text-align: center;
+        padding: 20px 0px;
+        background: green;
+        border-radius: 10px;
+        font-size: 20px;
+        color: white;
+    }
+}
+
+.bg-blue {
+    background-color: #8e6897;
+}
+
+/* .button {
+    background: #8e6897;
+} */
+
+.compare-plans {
+    margin-top: 64px;
+    padding-top: 3%;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    justify-content: center;
+  
+  }
+  
+  .main-card {
+      
+    width: 80%;
+    text-align: center;
+    /* margin-bottom: 10%; */
+    height: fit-content;
+    padding: 2.5% !important;
+    justify-content: center;
+    margin: 5% auto !important;
+    margin-top: 0 !important;
+  
+  }
+  
+  .spinner-loading {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+    align-items: center;
+  }
+  .rate-cards {
+    padding: 0 10%;
+    display: flex;
+    /* margin: 0 10%; */
+    justify-content: space-between;
+  }
+  .term-card {
+    /* margin: 1rem 2rem !important; */
+    max-width: 7rem;
+    /* height: 5rem; */
+    text-align: center;
+    padding: 16px 8px !important;
+    
+  }
+  
+  /* .main-wrap-test {
+    flex-wrap: row;
+    align-content: space-between;
+  } */
+  
+  .rate-cards-test {
+    padding: 0 10%;
+    /* flex: 5; */
+    /* margin: 0 10%; */
+    /* justify-content: space-between; */
+  }
+  
+  /* .mat-cell:hover {
+      background-color: #b9b9b9;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      text-align: -webkit-center;
+  
+  } */
+  
+  .term-card:hover {
+      background-color: #3f51b5;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+  }
+
+  .add-btn {
+    cursor: pointer !important;
+  }
+  
+  .table-container {
+    justify-content: center;
+    overflow: auto;
+    border: 20px solid #4a4b4d;
+    border-radius: 15px;
+    margin: 20px auto 0px !important;
+    width: 85%;
+  }
+  
+  table {
+    width: -webkit-fill-available;
+    text-align: center;
+    min-height: 300px;
+    width: 100%;
+    }
+  
+  mat-header-cell {
+    text-align: center;
+  }
+  table th {
+    /* height: 50px;
+    width: 50px; */
+    text-align: center;
+    font-size: initial;
+    font-weight: 800;
+    color:black;
+  }
+  
+  table tr{
+    text-align: center;
+    text-align: -webkit-center;
+  }
+  
+  
+  
+  table th .mat-cell:first-of-type {
+    padding: 12px;
+  }
+  
+  table th .mat-cell:last-of-type{
+    padding: 12px !important;
+  }
+  
+  table tr .mat-cell:first-of-type {
+    padding: 12px;
+  }
+  
+  table tr .mat-cell:last-of-type{
+    padding: 12px !important;
+  }
+  
+  .adminDashboardView{
+    
+    display: flex;
+   
+    justify-content: space-between !important;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+  }
+  
+  
+  
+  .plotly-graph{
+    /* display: flex;
+    align-items: stretch; */
+   
+    /* margin-left: 10%;
+    margin-right: 10%; */
+    width: 45%;
+    height: 275px;
+    
+  }
+  
+  table tr .mat-cell:first-of-type:hover {
+    background:transparent;
+    color:#000;
+    border-radius:0;
+    pointer-events:none;
+  }
+
+  .show-section {
+    align-items: center;
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    background: w;
+    background: white;
+    padding: 20px 0px 10px 0px;
+    border-radius: 5px;
+  }
